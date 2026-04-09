@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
-import joblib
 from datetime import datetime
+import os
+import gdown
+import pickle
 
 # ====================== PAGE CONFIG ======================
 st.set_page_config(
@@ -11,13 +13,20 @@ st.set_page_config(
 )
 
 # ====================== LOAD MODEL ======================
+MODEL_PATH = "model.pkl"
+
+if not os.path.exists(MODEL_PATH):
+    url = "https://drive.google.com/uc?id=1n0KyMQakt7WPDFQHa0wrpFning2H_8PM"
+    gdown.download(url, MODEL_PATH, quiet=False)
+
 @st.cache_resource
 def load_model():
     try:
-        package = joblib.load('final_fraud_detection_model.pkl')
+        with open(MODEL_PATH, "rb") as f:
+            package = pickle.load(f)
         return package['model'], package.get('optimal_threshold', 0.35)
     except:
-        st.error("Model file not found. Please make sure 'final_fraud_detection_model.pkl' is in the same folder.")
+        st.error("Model file not found or corrupted.")
         return None, None
 
 model, threshold = load_model()
@@ -66,8 +75,12 @@ is_high_risk_type = 1 if transaction_type in ["TRANSFER", "CASH_OUT"] else 0
 is_large_amount = 1 if amount > 1000000 else 0
 high_risk_score = is_high_risk_type + is_large_amount
 
-amount_category = ("Large" if amount > 1000000 else 
-                  "Medium" if amount > 100000 else "Small")
+amount_category = (
+    "Very Large" if amount > 2000000 else
+    "Large" if amount > 1000000 else
+    "Medium" if amount > 100000 else
+    "Small"
+)
 
 # ====================== PREDICTION BUTTON ======================
 if st.button("🔍 Check for Fraud", type="primary", use_container_width=True):
