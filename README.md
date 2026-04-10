@@ -133,7 +133,9 @@ I am always open to collaboration, new opportunities, and discussions on data sc
 Connect with me:
 
 💼LinkedIn: http://www.linkedin.com/in/oluwafisayomi-ajiboye-8a4902124
+
 💻GitHub: https://github.com/fisayojiboye
+
 ✍️Medium: https://medium.com/@oluwafisayomiajiboye/%EF%B8%8Fi-built-an-ai-fraud-detection-app-that-catches-95-8-of-fraud-heres-how-1acab771c904
 
 ⭐ Feel free to test the live demo and share your feedback!
