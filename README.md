@@ -126,10 +126,13 @@ streamlit run app.py
 
 ### 👤 About the Author
 Fisayo Ajiboye
+
 Data Scientist
+
 I am a passionate Data Scientist with strong expertise in building end-to-end machine learning solutions, particularly in the financial domain. This project showcases my ability to handle large-scale imbalanced datasets, perform deep feature engineering, optimize high-performance models (XGBoost), and deploy production-ready applications using modern tools like Streamlit.
 My focus is on developing practical, explainable, and impactful AI systems that solve real business problems — from fraud detection to predictive analytics.
 I am always open to collaboration, new opportunities, and discussions on data science and machine learning.
+
 Connect with me:
 
 💼LinkedIn: http://www.linkedin.com/in/oluwafisayomi-ajiboye-8a4902124
